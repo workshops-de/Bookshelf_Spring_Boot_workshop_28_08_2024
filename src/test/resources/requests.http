@@ -1,0 +1,22 @@
+###
+GET http://localhost:8080/book
+
+###
+GET http://localhost:8080/view
+
+###
+@isbn=978-3836211160
+GET http://localhost:8080/book/{{isbn}}
+
+###
+GET http://localhost:8080/book?author=Birgit
+
+###
+POST http://localhost:8080/book/search
+Content-Type: application/json
+
+{
+"isbn": "978-3836211161",
+"author": "Rob",
+"slkdjlfas": "sdlskfh"
+}
