@@ -5,11 +5,11 @@ GET http://localhost:8080/book
 GET http://localhost:8080/view
 
 ###
-@isbn=978-3836211160
+@isbn=978-3836211161
 GET http://localhost:8080/book/{{isbn}}
 
 ###
-GET http://localhost:8080/book?author=Birgit
+GET http://localhost:8080/book?author=Rob
 
 ###
 POST http://localhost:8080/book/search
