@@ -20,7 +20,7 @@
     </springProfile>
     <springProfile name="prod">
         <root level="info">
-            <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
 
@@ -40,6 +40,6 @@
     <logger name="org.springframework.boot.devtools" level="warn"/>
     <logger name="org.springframework.security" level="info"/>
     <logger name="org.springframework.boot.autoconfigure.security.servlet" level="info"/>
-     <logger name="org.springframework.test" level="debug" />
+     <logger name="org.springframework.test" level="info" />
     <logger name="org.springframework.web" level="debug"/>
 </configuration>

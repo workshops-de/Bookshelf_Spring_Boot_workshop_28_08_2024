@@ -1,0 +1,14 @@
+application:
+    title: '@project.name@'
+    version: '@project.version@'
+springdoc:
+    api-docs:
+        enabled: false
+
+swagger:
+    application-version: '@project.version@'
+    title: 'Bookshelf API'
+    email:
+    license:
+        name: 'MIT License'
+        url: 'https://opensource.org/licenses/MIT'

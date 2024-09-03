@@ -46,4 +46,5 @@ class BookRestControllerTest {
     void getBookByAuthor_authorNotExisting() {
         assertThatExceptionOfType(BookException.class).isThrownBy(() -> bookRestController.getBookByAuthor("Birgit"));
     }
+
 }
