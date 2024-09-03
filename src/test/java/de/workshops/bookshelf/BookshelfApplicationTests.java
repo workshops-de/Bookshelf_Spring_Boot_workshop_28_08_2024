@@ -8,8 +8,8 @@ import org.springframework.test.context.junit.jupiter.EnabledIf;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
-@ActiveProfiles("test")
+@SpringBootTest(properties = "spring.datasource.url=jdbc:h2:mem:bookshelf")
+@ActiveProfiles("prod")
 class BookshelfApplicationTests {
 
 	@Value("${server.port:8080}")

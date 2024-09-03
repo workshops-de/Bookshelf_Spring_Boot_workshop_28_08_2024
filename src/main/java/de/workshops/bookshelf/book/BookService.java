@@ -1,5 +1,6 @@
 package de.workshops.bookshelf.book;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,9 +8,9 @@ import java.util.Optional;
 
 @Service
 class BookService {
-    private final BookRepository bookRepository;
+    private final BookRepositoryJdbcTemplate bookRepository;
 
-    BookService(BookRepository bookRepository) {
+    BookService(BookRepositoryJdbcTemplate bookRepository) {
         this.bookRepository = bookRepository;
     }
 
@@ -43,4 +44,7 @@ class BookService {
         return book.getAuthor().contains(author);
     }
 
+    public Book createBook(@Valid Book book) {
+        return bookRepository.save(book);
+    }
 }

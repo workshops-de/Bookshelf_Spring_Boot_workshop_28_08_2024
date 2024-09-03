@@ -50,7 +50,7 @@ class BookRestController {
 
     @PostMapping
     Book createBook(@RequestBody @Valid Book book) {
-        return book;
+        return bookService.createBook(book);
     }
 
     @ExceptionHandler(BookException.class)
