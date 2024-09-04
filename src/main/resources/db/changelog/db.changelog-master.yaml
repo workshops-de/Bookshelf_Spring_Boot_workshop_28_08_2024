@@ -27,3 +27,54 @@ databaseChangeLog:
       rollback:
         - dropTable:
             tableName: book
+
+  - changeSet:
+      id: createTableUsers
+      author: workshops
+      changes:
+        - createTable:
+            tableName: bookshelf_user
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: username
+                  type: varchar
+                  constraints:
+                    unique: true
+              - column:
+                  name: password
+                  type: varchar
+              - column:
+                  name: firstname
+                  type: varchar
+              - column:
+                  name: lastname
+                  type: varchar
+              - column:
+                  name: role
+                  type: varchar
+              - column:
+                  name: lastlogin
+                  type: datetime
+      rollback:
+        - dropTable:
+            tableName: bookshelf_user
+
+  - changeSet:
+      id: createDefaultAdmin
+      author: workshops
+      changes:
+        - sql:
+            sql: >
+              INSERT INTO bookshelf_user (username, password, firstname, lastname, role)
+              VALUES ('birgit', '$2a$10$UAtgs3gVasUpaSZNbJKpievwi1U/d5cCjFokAZw8U.5ayb.raWTli', 'Birgit', 'Kratz', 'ROLE_USER');
+              INSERT INTO bookshelf_user (username, password, firstname, lastname, role)
+              VALUES ('admin', '$2a$10$ppiPPGJnfPl7TRfOesNbbuQ2O5Wab41fzIyWvo0Sb6jOl19mLNtrm', 'Achim', 'Admin', 'ROLE_ADMIN');
+      rollback:
+        - sql:
+            sql: DELETE FROM bookshelf_user;
